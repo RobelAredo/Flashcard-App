@@ -1,22 +1,28 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { updateCard, readCard } from "../utils/api";
+import { updateCard, readCard, readDeck } from "../utils/api";
 
 export default function EditCard () {
   const initialCard = { front: "", back: "" }
   const [ card, setCard ] = useState({...initialCard});
+  const [ deck, setDeck ] = useState({});
   const history = useHistory();
   const { deckId, cardId } = useParams();
   
   useEffect (() => {
-    const ac = new AbortController();
+    const ac1 = new AbortController();
+    const ac2 = new AbortController();
 
     const loadCard = async () => {
-      setCard(await readCard( cardId, ac.signal));
+      setCard(await readCard( cardId, ac1.signal ));
+      setDeck(await readDeck( deckId, ac2.signal ));
     }
     loadCard();
 
-    return () => ac.abort();
+    return () => {
+      ac1.abort();
+      ac2.abort();
+    }
   }, [])
 
   const changeHandler = ({target}) => {
@@ -42,8 +48,11 @@ export default function EditCard () {
           <li class="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
+          <li class="breadcrumb-item">
+            <Link to={`/decks/${deckId}`}>{deck.name}</Link>
+          </li>
           <li class="breadcrumb-item active">
-            Create Deck
+            Edit Card {card.id}
           </li>
         </ol>
       </nav>
@@ -52,16 +61,16 @@ export default function EditCard () {
           Front
           <br/>
           <textarea name='front' type="text" id="front" 
-          placeholder="Deck Name" onChange={changeHandler} value={card.front} />
+          onChange={changeHandler} value={card.front} />
         </label>
         <label htmlFor="back">
           Back
           <br/>
           <textarea name='back' type="text" id="back" 
-          placeholder="Brief description of the deck" onChange={changeHandler} value={card.back} />
+          onChange={changeHandler} value={card.back} />
         </label>
         <div>
-          <button className= "btn btn-secondary" type="button">Cancel</button>
+          <button className= "btn btn-secondary" type="button" onClick={() => history.push(`/decks/${deckId}`)}>Cancel</button>
           <button className= "btn btn-primary" type="submit">Submit</button>
         </div>
 
