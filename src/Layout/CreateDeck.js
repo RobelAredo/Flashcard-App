@@ -1,6 +1,7 @@
 import React, { useState }  from "react";
 import { Link, useHistory } from "react-router-dom";
 import { createDeck } from "../utils/api";
+import DeckForm from "./FormLayouts/DeckForm";
 
 
 
@@ -39,25 +40,11 @@ export default function CreateDeck ({ setReloadList }) {
           </li>
         </ol>
       </nav>
-      <form onSubmit={submitHandler} className="card">
-        <label htmlFor="name">
-          Name
-          <br/>
-          <input name='name' type="text" id="name" 
-          placeholder="Deck Name" onChange={changeHandler} value={deck.name} />
-        </label>
-        <label htmlFor="description">
-          Description
-          <br/>
-          <textarea name='description' type="text" id="description" 
-          placeholder="Brief description of the deck" onChange={changeHandler} value={deck.description} />
-        </label>
-        <div className="button-footer">
-          <Link to="/" className="btn btn-secondary" type="button">Cancel</Link>
-          <button className= "btn btn-primary" type="submit">Submit</button>
-        </div>
-
-      </form>
+      <DeckForm
+        submitHandler={submitHandler}
+        changeHandler={changeHandler}
+        deck={deck} url={`/`}
+      />
     </>
   )
 }

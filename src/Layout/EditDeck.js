@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link, useHistory, useParams } from "react-router-dom";
 import { readDeck, updateDeck } from "../utils/api";
+import DeckForm from "./FormLayouts/DeckForm";
 
 export default function EditDeck ({ setReloadList }) {
   const initialDeck = { name: "", description: "" }
@@ -54,29 +55,11 @@ export default function EditDeck ({ setReloadList }) {
         </ol>
       </nav>
       <h3>Edit Deck</h3>
-      <form onSubmit={submitHandler} className="card">
-        <label htmlFor="name">
-          Name
-          <br/>
-          <input name='name' type="text" id="name" 
-          placeholder="Deck Name" onChange={changeHandler} value={deck.name} />
-        </label>
-        <label htmlFor="description">
-          Description
-          <br/>
-          <textarea name='description' type="text" id="description" 
-          placeholder="Brief description of the deck"
-          onChange={changeHandler} value={deck.description} />
-        </label>
-        <div>
-          <Link to={`/decks/${deckId}`} className="btn btn-secondary" type="button">
-            Cancel
-          </Link>
-          <button className= "btn btn-primary" type="submit">
-            Submit
-          </button>
-        </div>
-      </form>
+      <DeckForm
+        submitHandler={submitHandler}
+        changeHandler={changeHandler}
+        deck={deck} url={`/decks/${deckId}`}
+      />
     </>
   )
 }

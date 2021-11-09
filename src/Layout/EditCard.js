@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { updateCard, readCard, readDeck } from "../utils/api";
+import CardForm from "./CardForm";
 
 export default function EditCard () {
   const initialCard = { front: "", back: "" }
@@ -56,29 +57,10 @@ export default function EditCard () {
           </li>
         </ol>
       </nav>
-      <form onSubmit={submitHandler} className="card">
-        <label htmlFor="front">
-          Front
-          <br/>
-          <textarea name='front' type="text" id="front" 
-          onChange={changeHandler} value={card.front} />
-        </label>
-        <label htmlFor="back">
-          Back
-          <br/>
-          <textarea name='back' type="text" id="back" 
-          onChange={changeHandler} value={card.back} />
-        </label>
-        <div>
-          <Link to={`/decks/${deckId}`} className= "btn btn-secondary" type="button">
-            Cancel
-          </Link>
-          <button className= "btn btn-primary" type="submit">
-            Submit
-          </button>
-        </div>
-
-      </form>
+      <CardForm
+        submitHandler={submitHandler}
+        changeHandler={changeHandler}
+        card={card} deckId={deckId} />
     </>
   )
 }

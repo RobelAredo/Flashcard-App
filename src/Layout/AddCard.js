@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api";
+import CardForm from "./CardForm";
 
 export default function AddCard () {
   const { deckId } = useParams();
@@ -52,29 +53,10 @@ export default function AddCard () {
         </ol>
       </nav>
       <h3>{deck.name}: Add Card</h3>
-      <form onSubmit={submitHandler} className="card">
-        <label htmlFor="front">
-          Front
-          <br/>
-          <textarea name='front' type="text" id="front" 
-          onChange={changeHandler} value={card.front} />
-        </label>
-        <label htmlFor="back">
-          Back
-          <br/>
-          <textarea name='back' type="text" id="back" 
-          onChange={changeHandler} value={card.back} />
-        </label>
-        <div>
-          <button className= "btn btn-secondary" type="button" onClick={() => history.push(`/decks/${deckId}`)}>
-            Done
-          </button>
-          <button className= "btn btn-primary" type="submit">
-            Save
-          </button>
-        </div>
-
-      </form>
+      <CardForm 
+        submitHandler={submitHandler}
+        changeHandler={changeHandler}
+        card={card} deckId={deckId} />
     </>
   )
 }
