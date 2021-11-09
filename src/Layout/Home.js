@@ -30,16 +30,25 @@ export default function Home ({ decks, setDecks }) {
     </div>
     <h5 className="card-text">{deck.description}</h5>
     <div class="button-footer">
-      <Link to={`/decks/${deck.id}`} className="btn btn-secondary">View</Link>
-      <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
-      <button className="btn btn-danger" onClick={() => deleteHandler(deck.id)}>Delete</button>
+      <Link to={`/decks/${deck.id}`} className="btn btn-secondary">
+        <span class="oi oi-eye" title="eye" aria-hidden="true"></span> View
+      
+      </Link>
+      <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">
+        <span class="oi oi-book" title="book" aria-hidden="true"></span> Study
+      </Link>
+      <button className="btn btn-danger" onClick={() => deleteHandler(deck.id)}>
+        <span class="oi oi-trash" title="trash" aria-hidden="true"></span>
+      </button>
     </div>
   </li>
   ))
 
   return (
   <div>
-    <Link to={`${url}decks/new`} className="btn btn-secondary">+ Create Deck</Link>
+    <Link to={`${url}decks/new`} className="btn btn-secondary">
+      <span class="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Create Deck
+    </Link>
     <ul>{deckList}</ul>
   </div>
   )

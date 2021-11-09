@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { readDeck, deleteCard, deleteDeck } from "../utils/api";
+import DeckCardItem from "./DeckCardItem";
 
 export default function Deck ({ setReloadList }) {
   const { deckId } = useRouteMatch().params;
@@ -9,23 +10,7 @@ export default function Deck ({ setReloadList }) {
   const history = useHistory();
   // const initialDeck = { name: "", description: "" }
   // const history = useHistory();
-  const cardList = deck.cards?.map(card => (
-    <li key={card.id} id={`card${card.id}`} className="card">
-      <div className="row">
-        <div className="col">
-          <p>{card.front}</p>
-        </div>
-        <div className="col">
-          <p>{card.back}</p>
-          <div className="edit-button-footer">
-            <button className= "btn btn-secondary" type="button" onClick={() => history.push(`${url}/cards/${card.id}/edit`)}>Edit</button>
-            <button className= "btn btn-danger" type="button" onClick={() => deleteHandler(card.id)}>Delete</button>
-          </div>
-        </div>
-      </div>
-    </li>
-  ))
-
+  
   useEffect(() => {
     const ac = new AbortController();
     const loadDeck = async () => {
@@ -35,7 +20,7 @@ export default function Deck ({ setReloadList }) {
     loadDeck();
     return () => ac.abort();
   }, [])
-
+  
   const deleteHandler = (cardId) => {
     if (window.confirm("Delete this card?\n\nYou will not be able to recover it.")) {
       const ac = new AbortController();
@@ -52,7 +37,7 @@ export default function Deck ({ setReloadList }) {
       return () => ac.abort();
     }
   }
-
+  
   const deleteDeckHandler = () => {
     if (window.confirm("Delete this deck?\n\nYou will not be able to recover it.")) {
       const ac = new AbortController();
@@ -69,6 +54,14 @@ export default function Deck ({ setReloadList }) {
       return () => ac.abort();
     }
   }
+  
+  const cardList = deck.cards?.map(card => (
+    <DeckCardItem
+      card={card}
+      deleteHandler={deleteHandler}
+      history={history}
+      url={url}/>
+  ));
 
   return (
      <>
@@ -85,10 +78,10 @@ export default function Deck ({ setReloadList }) {
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
       <div className="button-footer">
-        <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">Edit</Link>
-        <Link to={`/decks/${deckId}/study`} className="btn btn-primary">Study</Link>
-        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link>
-        <button onClick={deleteDeckHandler} className="btn btn-danger">Delete</button>
+        <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary"><span class="oi oi-pencil" title="pencil" aria-hidden="true"></span> Edit</Link>
+        <Link to={`/decks/${deckId}/study`} className="btn btn-primary"><span class="oi oi-book" title="book" aria-hidden="true"></span> Study</Link>
+        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary"><span class="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Add Cards</Link>
+        <button onClick={deleteDeckHandler} className="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"></span></button>
       </div>
       <h3>Cards</h3>
       <ul style={{listStyleType:'none'}}>

@@ -26,7 +26,7 @@ export default function StudyDeck ({ cards }) {
       <>
         <h3>Not enough cards.</h3>
         <p>You need at least 3 cards to study. There are {cards.length} cards in this deck.</p>
-        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Card</Link>
+        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary"><span class="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Add Card</Link>
       </>
     )
   }
