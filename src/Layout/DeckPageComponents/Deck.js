@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
-import { readDeck, deleteCard, deleteDeck } from "../utils/api";
+import { readDeck, deleteCard, deleteDeck } from "../../utils/api";
 import DeckCardItem from "./DeckCardItem";
 
 export default function Deck ({ setReloadList }) {
@@ -8,9 +8,7 @@ export default function Deck ({ setReloadList }) {
   const { url } = useRouteMatch();
   const [ deck, setDeck ] = useState({});
   const history = useHistory();
-  // const initialDeck = { name: "", description: "" }
-  // const history = useHistory();
-  
+
   useEffect(() => {
     const ac = new AbortController();
     const loadDeck = async () => {
@@ -78,10 +76,18 @@ export default function Deck ({ setReloadList }) {
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
       <div className="button-footer">
-        <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary"><span class="oi oi-pencil" title="pencil" aria-hidden="true"></span> Edit</Link>
-        <Link to={`/decks/${deckId}/study`} className="btn btn-primary"><span class="oi oi-book" title="book" aria-hidden="true"></span> Study</Link>
-        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary"><span class="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Add Cards</Link>
-        <button onClick={deleteDeckHandler} className="btn btn-danger"><span class="oi oi-trash" title="trash" aria-hidden="true"></span></button>
+        <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">
+          <span class="oi oi-pencil" title="pencil" aria-hidden="true"></span> Edit
+        </Link>
+        <Link to={`/decks/${deckId}/study`} className="btn btn-primary">
+          <span class="oi oi-book" title="book" aria-hidden="true"></span> Study
+        </Link>
+        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">
+          <span class="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Add Cards
+        </Link>
+        <button onClick={deleteDeckHandler} className="btn btn-danger">
+          <span class="oi oi-trash" title="trash" aria-hidden="true"></span>
+        </button>
       </div>
       <h3>Cards</h3>
       <ul style={{listStyleType:'none'}}>

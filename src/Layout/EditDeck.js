@@ -65,11 +65,16 @@ export default function EditDeck ({ setReloadList }) {
           Description
           <br/>
           <textarea name='description' type="text" id="description" 
-          placeholder="Brief description of the deck" onChange={changeHandler} value={deck.description} />
+          placeholder="Brief description of the deck"
+          onChange={changeHandler} value={deck.description} />
         </label>
         <div>
-          <Link to={`/decks/${deckId}`} className="btn btn-secondary" type="button">Cancel</Link>
-          <button className= "btn btn-primary" type="submit">Submit</button>
+          <Link to={`/decks/${deckId}`} className="btn btn-secondary" type="button">
+            Cancel
+          </Link>
+          <button className= "btn btn-primary" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </>

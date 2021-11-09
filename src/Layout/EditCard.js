@@ -70,8 +70,12 @@ export default function EditCard () {
           onChange={changeHandler} value={card.back} />
         </label>
         <div>
-          <button className= "btn btn-secondary" type="button" onClick={() => history.push(`/decks/${deckId}`)}>Cancel</button>
-          <button className= "btn btn-primary" type="submit">Submit</button>
+          <Link to={`/decks/${deckId}`} className= "btn btn-secondary" type="button">
+            Cancel
+          </Link>
+          <button className= "btn btn-primary" type="submit">
+            Submit
+          </button>
         </div>
 
       </form>

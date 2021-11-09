@@ -1,16 +1,16 @@
 import "./index.css"
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
-import { listDecks } from "../utils/api/index"
+import { listDecks } from "../utils/api/index";
 import Header from "./Header";
-import Home from "./Home"
+import Home from "./Home";
 import NotFound from "./NotFound";
 import CreateDeck from "./CreateDeck";
-import Study from "./Study";
-import Deck from "./Deck"
-import EditDeck from "./EditDeck"
-import AddCard from "./AddCard"
-import EditCard from "./EditCard"
+import Study from "./StudyPageComponents/Study";
+import Deck from "./DeckPageComponents/Deck";
+import EditDeck from "./EditDeck";
+import AddCard from "./AddCard";
+import EditCard from "./EditCard";
 
 function Layout() {
   const [decks, setDecks] = useState([]);

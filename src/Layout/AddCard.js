@@ -66,8 +66,12 @@ export default function AddCard () {
           onChange={changeHandler} value={card.back} />
         </label>
         <div>
-          <button className= "btn btn-secondary" type="button" onClick={() => history.push(`/decks/${deckId}`)}>Done</button>
-          <button className= "btn btn-primary" type="submit">Save</button>
+          <button className= "btn btn-secondary" type="button" onClick={() => history.push(`/decks/${deckId}`)}>
+            Done
+          </button>
+          <button className= "btn btn-primary" type="submit">
+            Save
+          </button>
         </div>
 
       </form>

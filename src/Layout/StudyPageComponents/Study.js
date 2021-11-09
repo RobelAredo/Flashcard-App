@@ -1,13 +1,10 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { updateCard, readCard, readDeck } from "../utils/api";
+import { updateCard, readCard, readDeck } from "../../utils/api";
 import StudyDeck from "./StudyDeck";
 
 export default function Study () {
-  const initialCard = { front: "", back: "" }
-  const [ card, setCard ] = useState({...initialCard});
   const [ deck, setDeck ] = useState({});
-  const history = useHistory();
   const { deckId } = useParams();
   
   useEffect (() => {
