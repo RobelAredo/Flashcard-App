@@ -13,6 +13,7 @@ import EditCard from "./EditCard"
 
 function Layout() {
   const [decks, setDecks] = useState([]);
+  const [reloadList, setReloadList] = useState(true)
 
   useEffect (() => {
     const ac = new AbortController();
@@ -29,7 +30,7 @@ function Layout() {
     }
     loadDecks();
     return () => ac.abort();
-  }, [])
+  }, [reloadList])
 
   console.log(decks)
   return (
@@ -41,13 +42,13 @@ function Layout() {
             <Home decks={decks} setDecks={setDecks}/>
           </Route>
           <Route exact path="/decks/new">
-            <CreateDeck/>
+            <CreateDeck setReloadList={setReloadList}/>
           </Route>
           <Route exact path="/decks/:deckId/study">
             <Study/>
           </Route>
           <Route exact path="/decks/:deckId">
-            <Deck/>
+            <Deck setReloadList={setReloadList}/>
           </Route>
           <Route exact path="/decks/:deckId/edit">
             <EditDeck/>

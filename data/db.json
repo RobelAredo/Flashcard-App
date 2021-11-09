@@ -11,15 +11,44 @@
       "id": 2
     },
     {
-      "card": "",
-      "description": "Learning the Prototype Chain",
-      "name": "JS Prototypes",
+      "name": "React Router 1",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 3
     },
     {
-      "name": "Regex",
-      "description": "Studying what all the syntax means.",
+      "name": "React Router 2",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
       "id": 4
+    },
+    {
+      "name": "React Router 3",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
+      "id": 5
+    },
+    {
+      "name": "React Router 4",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
+      "id": 6
+    },
+    {
+      "name": "React Router 5",
+      "description": "React Router is a collection of navigational components that compose declaratively with your application.",
+      "id": 7
+    },
+    {
+      "name": "ddd",
+      "description": "ddd",
+      "id": 8
+    },
+    {
+      "name": "Bobby Bee",
+      "description": "SlamDam",
+      "id": 12
+    },
+    {
+      "name": "skldajflasd",
+      "description": "klsdjfklas",
+      "id": 13
     }
   ],
   "cards": [
@@ -34,6 +63,42 @@
       "back": "Renders the first matching child <Route> ",
       "deckId": 2,
       "id": 5
+    },
+    {
+      "front": "What company created React?",
+      "back": "Facebook",
+      "deckId": 2,
+      "id": 6
+    },
+    {
+      "front": "pppp",
+      "back": "ppppp",
+      "deckId": 1,
+      "id": 7
+    },
+    {
+      "front": "sadfiosd",
+      "back": "ospfos",
+      "deckId": 13,
+      "id": 8
+    },
+    {
+      "front": "kfjlkdsj",
+      "back": "kjlkjdflkj",
+      "deckId": 13,
+      "id": 9
+    },
+    {
+      "front": "wkejfwj",
+      "back": "jjfrjlkfjwlk",
+      "deckId": 13,
+      "id": 10
+    },
+    {
+      "front": "wkejfwj",
+      "back": "jjfrjlkfjwlk",
+      "deckId": 13,
+      "id": 11
     }
   ]
 }

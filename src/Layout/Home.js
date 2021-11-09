@@ -6,18 +6,20 @@ export default function Home ({ decks, setDecks }) {
   const { url } = useRouteMatch();
 
   const deleteHandler = (deckId) => {
-    const ac = new AbortController();
-    const deckForDeletion = document.querySelector(`#deck${deckId}`);
-    const deleteDeckData = async () => {
-      try {
-        deleteDeck(deckId, ac.signal);
-        deckForDeletion.remove()
-      } catch (error) {
-        if (error.name !== "AbortError") throw error;
+    if (window.confirm("Delete this deck?\n\nYou will not be able to recover it.")) {
+      const ac = new AbortController();
+      const deckForDeletion = document.querySelector(`#deck${deckId}`);
+      const deleteDeckData = async () => {
+        try {
+          deleteDeck(deckId, ac.signal);
+          deckForDeletion.remove()
+        } catch (error) {
+          if (error.name !== "AbortError") throw error;
+        }
       }
+      deleteDeckData();
+      return () => ac.abort();
     }
-    deleteDeckData();
-    return () => ac.abort();
   }
 
   const deckList = decks.map((deck, i) => (

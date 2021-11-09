@@ -4,7 +4,7 @@ import { createDeck } from "../utils/api";
 
 
 
-export default function CreateDeck () {
+export default function CreateDeck ({ setReloadList }) {
   const initialDeck = { name: "", description: "" }
   const [ deck, setDeck ] = useState({...initialDeck});
   const history = useHistory();
@@ -20,6 +20,7 @@ export default function CreateDeck () {
       const pushedDeckData = await createDeck({...deck},  ac.signal);
       const deckId = pushedDeckData.id;
       setDeck({...initialDeck});
+      setReloadList(set => !set)
       history.push(`/decks/${deckId}`)
     }
     pushDeckData();
@@ -52,7 +53,7 @@ export default function CreateDeck () {
           placeholder="Brief description of the deck" onChange={changeHandler} value={deck.description} />
         </label>
         <div>
-          <button className= "btn btn-secondary" type="button">Cancel</button>
+          <Link to="/" className="btn btn-secondary" type="button">Cancel</Link>
           <button className= "btn btn-primary" type="submit">Submit</button>
         </div>
 

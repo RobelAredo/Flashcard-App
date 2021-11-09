@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
-import { deleteCard, readDeck } from "../utils/api";
+import { readDeck, deleteCard, deleteDeck } from "../utils/api";
 
-export default function Deck () {
+export default function Deck ({ setReloadList }) {
   const { deckId } = useRouteMatch().params;
   const { url } = useRouteMatch();
   const [ deck, setDeck ] = useState({});
@@ -35,18 +35,37 @@ export default function Deck () {
   }, [])
 
   const deleteHandler = (cardId) => {
-    const ac = new AbortController();
-    const cardForDeletion = document.querySelector(`#card${cardId}`);
-    const deleteCardData = async () => {
-      try {
-        deleteCard(cardId, ac.signal);
-        cardForDeletion.remove()
-      } catch (error) {
-        if (error.name !== "AbortError") throw error;
+    if (window.confirm("Delete this card?\n\nYou will not be able to recover it.")) {
+      const ac = new AbortController();
+      const cardForDeletion = document.querySelector(`#card${cardId}`);
+      const deleteCardData = async () => {
+        try {
+          deleteCard(cardId, ac.signal);
+          cardForDeletion.remove()
+        } catch (error) {
+          if (error.name !== "AbortError") throw error;
+        }
       }
+      deleteCardData();
+      return () => ac.abort();
     }
-    deleteCardData();
-    return () => ac.abort();
+  }
+
+  const deleteDeckHandler = () => {
+    if (window.confirm("Delete this deck?\n\nYou will not be able to recover it.")) {
+      const ac = new AbortController();
+      const deleteDeckData = async () => {
+        try {
+          await deleteDeck(deckId, ac.signal);
+          setReloadList(set => !set);
+          history.push("/");
+        } catch (error) {
+          if (error.name !== "AbortError") throw error;
+        }
+      }
+      deleteDeckData();
+      return () => ac.abort();
+    }
   }
 
   return (
@@ -64,10 +83,10 @@ export default function Deck () {
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
       <div>
-        <button className="btn btn-secondary">Edit</button>
-        <button className="btn btn-primary">Study</button>
-        <button className="btn btn-primary">Add Cards</button>
-        <button className="btn btn-danger">Delete</button>
+        <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">Edit</Link>
+        <Link to={`/decks/${deckId}/study`} className="btn btn-primary">Study</Link>
+        <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link>
+        <button onClick={deleteDeckHandler} className="btn btn-danger">Delete</button>
       </div>
       <h3>Cards</h3>
       <ul style={{listStyleType:'none'}}>
