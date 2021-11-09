@@ -24,12 +24,15 @@ export default function Home ({ decks, setDecks }) {
 
   const deckList = decks.map((deck, i) => (
   <li className="card" id={`deck${deck.id}`} key={i}>
-    <h2 className="card-title">{deck.name}</h2>
+    <div className="card-title">
+      <h2 className="deck-title">{deck.name}</h2>
+      <p>{deck.cards.length} cards</p>
+    </div>
     <h5 className="card-text">{deck.description}</h5>
-    <div>
+    <div class="button-footer">
       <Link to={`/decks/${deck.id}`} className="btn btn-secondary">View</Link>
       <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
-      <button className="btn btn-primary" onClick={() => deleteHandler(deck.id)}>Delete</button>
+      <button className="btn btn-danger" onClick={() => deleteHandler(deck.id)}>Delete</button>
     </div>
   </li>
   ))

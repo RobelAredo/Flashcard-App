@@ -52,7 +52,7 @@ export default function CreateDeck ({ setReloadList }) {
           <textarea name='description' type="text" id="description" 
           placeholder="Brief description of the deck" onChange={changeHandler} value={deck.description} />
         </label>
-        <div>
+        <div className="button-footer">
           <Link to="/" className="btn btn-secondary" type="button">Cancel</Link>
           <button className= "btn btn-primary" type="submit">Submit</button>
         </div>

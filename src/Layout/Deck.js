@@ -15,10 +15,12 @@ export default function Deck ({ setReloadList }) {
         <div className="col">
           <p>{card.front}</p>
         </div>
-        <div  className="col">
+        <div className="col">
           <p>{card.back}</p>
-          <button className= "btn btn-secondary" type="button" onClick={() => history.push(`${url}/cards/${card.id}/edit`)}>Edit</button>
-          <button className= "btn btn-primary" type="button" onClick={() => deleteHandler(card.id)}>Delete</button>
+          <div className="edit-button-footer">
+            <button className= "btn btn-secondary" type="button" onClick={() => history.push(`${url}/cards/${card.id}/edit`)}>Edit</button>
+            <button className= "btn btn-danger" type="button" onClick={() => deleteHandler(card.id)}>Delete</button>
+          </div>
         </div>
       </div>
     </li>
@@ -82,7 +84,7 @@ export default function Deck ({ setReloadList }) {
       </nav>
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
-      <div>
+      <div className="button-footer">
         <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">Edit</Link>
         <Link to={`/decks/${deckId}/study`} className="btn btn-primary">Study</Link>
         <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">Add Cards</Link>

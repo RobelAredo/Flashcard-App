@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Link, useParams, useHistory } from "react-router-dom";
 import StudyCard from "./StudyCard";
+import StudyDeckNextButton from "./StudyDeckNextButton";
 
 export default function StudyDeck ({ cards }) {
-  // const { deckId } = useParams();
-  const initialStudySession = {front: true, cardIndex:0}
+  const initialStudySession = { front: true, cardIndex:0 }
   const [studySession, setStudySession] = useState({...initialStudySession});
   const { deckId } = useParams();
   const history = useHistory();
 
   const nextCardHandler = () => {
-      console.log("before loop", cards.length - 1, studySession.cardIndex + 1)
-      console.log((cards.length - 1 )>( studySession.cardIndex + 1))
       if ( cards.length > studySession.cardIndex + 1) {
-        setStudySession(({cardIndex}) => ({...studySession, cardIndex: cardIndex + 1}));
+        setStudySession(({ cardIndex }) => ({ front: true, cardIndex: cardIndex + 1 }));
       } else {
         setStudySession({...initialStudySession});
         if (!window.confirm("Restart cards?\n\nClick 'cancel' to return to the home page.")) {
@@ -23,8 +21,7 @@ export default function StudyDeck ({ cards }) {
   }
 
   if (!cards) return null;
-  console.log(cards.length - 1, studySession.cardIndex)
-  if (cards.length < 3) {
+  else if (cards.length < 3) {
     return (
       <>
         <h3>Not enough cards.</h3>
@@ -35,12 +32,12 @@ export default function StudyDeck ({ cards }) {
   }
   return (
     <div className="card">
+      <h4>Card {studySession.cardIndex + 1} of {cards.length}</h4>
       <StudyCard card={cards[studySession.cardIndex]} front={studySession.front}/>
       <div>
         <button className= "btn btn-secondary" type="button"
         onClick={() => setStudySession(({front}) => ({...studySession, front: !front}))}>Flip</button>
-        <button className= "btn btn-primary" type="submit"
-        onClick={nextCardHandler}>Next</button>
+        <StudyDeckNextButton display={!studySession.front} nextCardHandler={nextCardHandler}/>
       </div>
     </div>
   )
