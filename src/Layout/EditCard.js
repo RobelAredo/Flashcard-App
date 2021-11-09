@@ -35,7 +35,7 @@ export default function EditCard () {
     const updateCardData = async () => {
       await updateCard({...card},  ac.signal);
       setCard({...initialCard});
-      history.push(`/decks/${deckId}`)
+      history.push(`/decks/${deckId}`);
     }
     updateCardData();
     return () => ac.abort();

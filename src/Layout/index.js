@@ -51,7 +51,7 @@ function Layout() {
             <Deck setReloadList={setReloadList}/>
           </Route>
           <Route exact path="/decks/:deckId/edit">
-            <EditDeck/>
+            <EditDeck setReloadList={setReloadList}/>
           </Route>
           <Route exact path="/decks/:deckId/cards/new">
             <AddCard/>
