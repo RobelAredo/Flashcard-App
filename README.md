@@ -1,12 +1,12 @@
-# Flashcard-App
+# Flashcard App
 
 This app allows the user to create flashcards for studying and to seperate them into decks according to their own categories.
 
 ## Links
 
-https://pure-caverns-73172.herokuapp.com/
+* [Flashcard App](https://pure-caverns-73172.herokuapp.com/ "Flashcard App")
 
-## ScreenShots
+## Screenshots
 
 ### Home Page:
 
@@ -40,7 +40,7 @@ Edit the current deck and it cards, as well as adding cards.
 
 #### Next Button Appears on Flip:
 
-![Next Button Appears on Flip](/./README-imgs/FlashCardApp-StudyDeckPage-OnFlip-.png?raw=true "Next Button Appears on Flip")
+![Next Button Appears on Flip](/./README-imgs/FlashCardApp-StudyDeckPage-OnFlip.png?raw=true "Next Button Appears on Flip")
 
 #### Confirmation Window on Deck Completion:
 
@@ -53,3 +53,14 @@ Edit the current deck and it cards, as well as adding cards.
 ### Confirmation Window on Card Deletions:
 
 ![Confirmation Window on Deck Completion](/./README-imgs/FlashCardApp-DeleteCardConfirmation.png?raw=true "Confirmation Window on Card Deletion")
+
+## Technology
+
+### Built with:
+* React, including Router and Hooks
+  * Created with create-react-app
+  * Organize/reuse code with React Components and Routes
+  * Reduce api calls with useEffects and useStates triggering API calls only when relevant database changes are made
+
+* Heroku
+  * Migrated to Heroku cloud server
