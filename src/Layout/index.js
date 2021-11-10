@@ -5,12 +5,12 @@ import { listDecks } from "../utils/api/index";
 import Header from "./Header";
 import Home from "./Home";
 import NotFound from "./NotFound";
-import CreateDeck from "./CreateDeck";
+import CreateDeck from "./DeckComponents/CreateDeck";
 import Study from "./StudyPageComponents/Study";
 import Deck from "./DeckPageComponents/Deck";
-import EditDeck from "./EditDeck";
-import AddCard from "./AddCard";
-import EditCard from "./EditCard";
+import EditDeck from "./DeckComponents/EditDeck";
+import AddCard from "./CardComponents/AddCard";
+import EditCard from "./CardComponents/EditCard";
 
 function Layout() {
   const [decks, setDecks] = useState([]);

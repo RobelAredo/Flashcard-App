@@ -39,11 +39,6 @@
       "name": "Bobby Bee",
       "description": "SlamDam",
       "id": 12
-    },
-    {
-      "name": "skldajflasd",
-      "description": "klsdjfklas",
-      "id": 13
     }
   ],
   "cards": [
@@ -70,30 +65,6 @@
       "back": "ppppp",
       "deckId": 1,
       "id": 7
-    },
-    {
-      "front": "sadfiosd",
-      "back": "ospfos",
-      "deckId": 13,
-      "id": 8
-    },
-    {
-      "front": "kfjlkdsj",
-      "back": "kjlkjdflkj",
-      "deckId": 13,
-      "id": 9
-    },
-    {
-      "front": "wkejfwj",
-      "back": "jjfrjlkfjwlk",
-      "deckId": 13,
-      "id": 10
-    },
-    {
-      "front": "wkejfwj",
-      "back": "jjfrjlkfjwlk",
-      "deckId": 13,
-      "id": 11
     }
   ]
 }

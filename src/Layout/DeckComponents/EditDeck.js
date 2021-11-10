@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { Link, useHistory, useParams } from "react-router-dom";
-import { readDeck, updateDeck } from "../utils/api";
-import DeckForm from "./FormLayouts/DeckForm";
+import { readDeck, updateDeck } from "../../utils/api";
+import DeckForm from "../FormLayouts/DeckForm";
 
 export default function EditDeck ({ setReloadList }) {
   const initialDeck = { name: "", description: "" }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
-import { createCard, readDeck } from "../utils/api";
-import CardForm from "./FormLayouts/CardForm";
+import { createCard, readDeck } from "../../utils/api";
+import CardForm from "../FormLayouts/CardForm";
 
 export default function AddCard () {
   const { deckId } = useParams();
