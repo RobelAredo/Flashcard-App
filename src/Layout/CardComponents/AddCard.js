@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../../utils/api";
 import CardForm from "../FormLayouts/CardForm";
 
@@ -12,7 +12,6 @@ export default function AddCard () {
   const changeHandler = ({target}) => {
     setCard(card => ({...card, [target.name]: target.value}))
   }
-
     
   useEffect (() => {
     const ac = new AbortController();
@@ -23,7 +22,7 @@ export default function AddCard () {
     loadCard();
 
     return () => ac.abort();
-  }, [])
+  }, [deckId])
 
   const submitHandler = event => {
     event.preventDefault();

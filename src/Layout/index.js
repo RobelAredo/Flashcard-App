@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { listDecks } from "../utils/api/index";
 import Header from "./Header";
-import Home from "./Home";
+import Home from "./HomePage/Home";
 import NotFound from "./NotFound";
 import CreateDeck from "./DeckComponents/CreateDeck";
 import Study from "./StudyPageComponents/Study";

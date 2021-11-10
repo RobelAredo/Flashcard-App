@@ -24,7 +24,7 @@ export default function EditCard () {
       ac1.abort();
       ac2.abort();
     }
-  }, [])
+  }, [deckId, cardId])
 
   const changeHandler = ({target}) => {
     setCard(card => ({...card, [target.name]: target.value}))

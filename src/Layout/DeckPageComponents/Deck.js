@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { readDeck, deleteCard, deleteDeck } from "../../utils/api";
-import DeckCardItem from "./DeckCardItem";
+import DeckCardsList from "./DeckCardsList";
 
 export default function Deck ({ setReloadList }) {
   const { deckId } = useRouteMatch().params;
@@ -17,7 +17,7 @@ export default function Deck ({ setReloadList }) {
     }
     loadDeck();
     return () => ac.abort();
-  }, [])
+  }, [deckId])
   
   const deleteHandler = (cardId) => {
     if (window.confirm("Delete this card?\n\nYou will not be able to recover it.")) {
@@ -53,14 +53,6 @@ export default function Deck ({ setReloadList }) {
     }
   }
   
-  const cardList = deck.cards?.map(card => (
-    <DeckCardItem
-      card={card}
-      deleteHandler={deleteHandler}
-      history={history}
-      url={url}/>
-  ));
-
   return (
      <>
       <nav aria-label="breadcrumb">
@@ -91,7 +83,12 @@ export default function Deck ({ setReloadList }) {
       </div>
       <h3>Cards</h3>
       <ul style={{listStyleType:'none'}}>
-        {cardList}
+        <DeckCardsList
+          cards={deck.cards}
+          deleteHandler={deleteHandler}
+          history={history}
+          url={url}
+        />
       </ul>
     </>
   )

@@ -18,7 +18,7 @@ export default function EditDeck ({ setReloadList }) {
     loadCard();
 
     return () => ac.abort();
-  }, [])
+  }, [deckId])
 
   const changeHandler = ({target}) => {
     setDeck(deck => ({...deck, [target.name]: target.value}))

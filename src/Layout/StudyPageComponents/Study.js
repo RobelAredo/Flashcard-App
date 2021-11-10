@@ -16,7 +16,7 @@ export default function Study () {
     loadCard();
 
     return () => ac1.abort();
-  }, [])
+  }, [deckId])
 
   return (
     <>
