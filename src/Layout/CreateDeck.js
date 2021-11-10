@@ -31,11 +31,11 @@ export default function CreateDeck ({ setReloadList }) {
   return (
     <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li key="1" className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li class="breadcrumb-item active">
+          <li key="2" className="breadcrumb-item active">
             Create Deck
           </li>
         </ol>

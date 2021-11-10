@@ -1,14 +1,13 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { createCard, readDeck } from "../utils/api";
-import CardForm from "./CardForm";
+import CardForm from "./FormLayouts/CardForm";
 
 export default function AddCard () {
   const { deckId } = useParams();
   const initialCard = { front: "", back: "", deckId }
   const [ card, setCard ] = useState({...initialCard});
   const [ deck, setDeck ] = useState({});
-  const history = useHistory();
 
   const changeHandler = ({target}) => {
     setCard(card => ({...card, [target.name]: target.value}))
@@ -40,14 +39,14 @@ export default function AddCard () {
   return (
     <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li key="1" className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li class="breadcrumb-item">
+          <li key="2" className="breadcrumb-item">
             <Link to={`/decks/${deckId}`}>{deck.name}</Link>
           </li>
-          <li class="breadcrumb-item active">
+          <li key="3" className="breadcrumb-item active">
             Add Card
           </li>
         </ol>

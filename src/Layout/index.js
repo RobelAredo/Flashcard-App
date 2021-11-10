@@ -23,7 +23,6 @@ function Layout() {
       try {
         const decksData = await listDecks(ac.signal);
         setDecks(decksData)
-        console.log(decksData)
       } catch (error) {
         if (error.name !== "AbortController") throw error;
         console.log(error.name);
@@ -33,7 +32,6 @@ function Layout() {
     return () => ac.abort();
   }, [reloadList])
 
-  console.log(decks)
   return (
     <>
       <Header />

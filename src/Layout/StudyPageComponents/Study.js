@@ -1,6 +1,6 @@
 import React, { useState, useEffect }  from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
-import { updateCard, readCard, readDeck } from "../../utils/api";
+import { Link, useParams } from "react-router-dom";
+import { readDeck } from "../../utils/api";
 import StudyDeck from "./StudyDeck";
 
 export default function Study () {
@@ -21,14 +21,14 @@ export default function Study () {
   return (
     <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li key="1" className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li class="breadcrumb-item">
+          <li key="2" className="breadcrumb-item">
             <Link to={`/decks/${deckId}`}>{deck.name}</Link>
           </li>
-          <li class="breadcrumb-item active">
+          <li key="3" className="breadcrumb-item active">
             Study
           </li>
         </ol>

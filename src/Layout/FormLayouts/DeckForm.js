@@ -21,7 +21,7 @@ export default function DeckForm ({ submitHandler, changeHandler, deck, url }) {
         <Link to={url} className="btn btn-secondary" type="button">
           Cancel
         </Link>
-        <button className= "btn btn-primary" type="submit">
+        <button className="btn btn-primary" type="submit">
           Submit
         </button>
       </div>

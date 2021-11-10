@@ -5,7 +5,7 @@ import DeckForm from "./FormLayouts/DeckForm";
 
 export default function EditDeck ({ setReloadList }) {
   const initialDeck = { name: "", description: "" }
-  const [ deck, setDeck ] = useState({});
+  const [ deck, setDeck ] = useState({...initialDeck});
   const history = useHistory();
   const { deckId } = useParams();
   
@@ -37,19 +37,17 @@ export default function EditDeck ({ setReloadList }) {
     return () => ac.abort();
   }
 
-  console.log("EDIT DECK")
-
   return (
     <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li key="1" className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li class="breadcrumb-item">
+          <li key="2" className="breadcrumb-item">
             <Link to={`/decks/${deckId}`}>{deck.name}</Link>
           </li>
-          <li class="breadcrumb-item active">
+          <li key="3" className="breadcrumb-item active">
             Edit Deck
           </li>
         </ol>

@@ -64,11 +64,11 @@ export default function Deck ({ setReloadList }) {
   return (
      <>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">
+        <ol className="breadcrumb">
+          <li key="1" className="breadcrumb-item">
             <Link to="/" >Home</Link>
           </li>
-          <li class="breadcrumb-item active">
+          <li key="2" className="breadcrumb-item active">
             { deck.name }
           </li>
         </ol>
@@ -77,16 +77,16 @@ export default function Deck ({ setReloadList }) {
       <p>{deck.description}</p>
       <div className="button-footer">
         <Link to={`/decks/${deckId}/edit`} className="btn btn-secondary">
-          <span class="oi oi-pencil" title="pencil" aria-hidden="true"></span> Edit
+          <span className="oi oi-pencil" title="pencil" aria-hidden="true"></span> Edit
         </Link>
         <Link to={`/decks/${deckId}/study`} className="btn btn-primary">
-          <span class="oi oi-book" title="book" aria-hidden="true"></span> Study
+          <span className="oi oi-book" title="book" aria-hidden="true"></span> Study
         </Link>
         <Link to={`/decks/${deckId}/cards/new`} className="btn btn-primary">
-          <span class="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Add Cards
+          <span className="oi oi-plus" title="plus" aria-hidden="true"></span> &nbsp; Add Cards
         </Link>
         <button onClick={deleteDeckHandler} className="btn btn-danger">
-          <span class="oi oi-trash" title="trash" aria-hidden="true"></span>
+          <span className="oi oi-trash" title="trash" aria-hidden="true"></span>
         </button>
       </div>
       <h3>Cards</h3>
