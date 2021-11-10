@@ -2,13 +2,13 @@
 
 This app allows the user to create flashcards for studying and to seperate them into decks according to their own categories.
 
-### Links
+## Links
 
 https://pure-caverns-73172.herokuapp.com/
 
-### ScreenShots
+## ScreenShots
 
-#### Home Page:
+### Home Page:
 
 ![Home Page](/./README-imgs/FlashCardApp-HomePage.png?raw=true "Home Page")
 
@@ -17,6 +17,8 @@ https://pure-caverns-73172.herokuapp.com/
 ![Create Deck Page](/./README-imgs/FlashCardApp-CreateDeckPage.png?raw=true "Create Deck Page")
 
 ### Deck Page:
+
+Edit the current deck and it cards, as well as adding cards.
 
 ![Deck Page](/./README-imgs/FlashCardApp-DeckPage.png?raw=true "Deck Page")
 
@@ -36,18 +38,18 @@ https://pure-caverns-73172.herokuapp.com/
 
 ![Study Deck Page](/./README-imgs/FlashCardApp-StudyDeckPage.png?raw=true "Study Deck Page")
 
-### Next Button Appears on Flip:
+#### Next Button Appears on Flip:
 
 ![Next Button Appears on Flip](/./README-imgs/FlashCardApp-StudyDeckPage-OnFlip-.png?raw=true "Next Button Appears on Flip")
 
-### Confirmation Window on Deck Completion:
+#### Confirmation Window on Deck Completion:
 
 ![Confirmation Window on Deck Completion](/./README-imgs/FlashCardApp-StudyDeckPage-OnFinish.png?raw=true "Confirmation Window on Deck Completion")
 
 ### Confirmation Window on Deck Deletions:
 
-![Confirmation Window on Deck Completion](/./README-imgs/FlashCardApp-DeleteDeckConfirmation-onFinish.png?raw=true "Confirmation Window on Deck Deletion")
+![Confirmation Window on Deck Completion](/./README-imgs/FlashCardApp-DeleteDeckConfirmation.png?raw=true "Confirmation Window on Deck Deletion")
 
 ### Confirmation Window on Card Deletions:
 
-![Confirmation Window on Deck Completion](/./README-imgs/FlashCardApp-DeleteCardConfirmation-onFinish.png?raw=true "Confirmation Window on Card Deletion")
+![Confirmation Window on Deck Completion](/./README-imgs/FlashCardApp-DeleteCardConfirmation.png?raw=true "Confirmation Window on Card Deletion")
