@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { createCard, readDeck } from "../../utils/api";
 import BreadCrumb from "../BreadCrumb";
 import CardForm from "../FormLayouts/CardForm";
