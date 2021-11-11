@@ -1,6 +1,7 @@
 import React, { useState, useEffect }  from "react";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { updateCard, readCard, readDeck } from "../../utils/api";
+import BreadCrumb from "../BreadCrumb";
 import CardForm from "../FormLayouts/CardForm";
 
 export default function EditCard () {
@@ -44,19 +45,10 @@ export default function EditCard () {
 
   return (
     <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li key="1" className="breadcrumb-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li key="2" className="breadcrumb-item">
-            <Link to={`/decks/${deckId}`}>{deck.name}</Link>
-          </li>
-          <li kkey="3" className="breadcrumb-item active">
-            Edit Card {card.id}
-          </li>
-        </ol>
-      </nav>
+      <BreadCrumb breadcrumb={
+        [{urlPath: deckId, linkName: deck.name},
+         {linkName: "Edit Card"}]
+      }/>
       <CardForm
         submitHandler={submitHandler}
         changeHandler={changeHandler}

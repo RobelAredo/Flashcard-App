@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useRouteMatch, useHistory } from "react-router-dom";
 import { readDeck, deleteCard, deleteDeck } from "../../utils/api";
+import BreadCrumb from "../BreadCrumb";
 import DeckCardsList from "./DeckCardsList";
 
 export default function Deck ({ setReloadList }) {
@@ -55,16 +56,7 @@ export default function Deck ({ setReloadList }) {
   
   return (
      <>
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li key="1" className="breadcrumb-item">
-            <Link to="/" >Home</Link>
-          </li>
-          <li key="2" className="breadcrumb-item active">
-            { deck.name }
-          </li>
-        </ol>
-      </nav>
+      <BreadCrumb breadcrumb={[{linkName: deck.name}]}/>
       <h4>{deck.name}</h4>
       <p>{deck.description}</p>
       <div className="button-footer">
